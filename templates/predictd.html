@@ -81,13 +81,16 @@
 			background-size: 1900px 1000px;
 			background-attachment: fixed;
 		  }
+		  .r{
+			background-color: #F6465B;
+		  }
 	</style> 
 </head> 
 
 <body id="ba1" style="background-image: url('{% static 'images/diabetes.jpg' %}');"> 
 	<p><em>WELCOME TO THE PREDICT PAGE</em></P> 
 	<div align='center' class="main"> 
-		<h1 class="gfg">ARSHAD ALI </h1> 
+		
 		<h1>It's just a prediction; do consult with a Doctor ????</h1> <br /> 
 		<form action="result"> 
 			<table> 
@@ -129,7 +132,8 @@
 		<div class="row"> 
 			<h2><em>{{result2}}</em></h2> 
 		</div> 
-		<a href="main">Go Home Page</a>
+		<button class="r" type="submit">
+			<a  href="main">Go Home Page</a></button>
 	</div> 
 </body> 
 

@@ -19,14 +19,20 @@
 	color: green; 
 	font-size: 30px; 
 } 
+#b1{
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 1900px 1000px;
+    background-attachment: fixed;
+  }
 </style> 
 
-<body> 
+<body id="b1" style="background-image: url('{% static 'images/heart.jpg' %}');"> 
 <br></br> 
 <div class="container"> 
 	<div class="card-body"> 
 	<h5 class="card-title text-muted text-uppercase text-center"> 
-		<strong class="ok"> ARSHAD ALI </strong><br> HEART DISEASES PREDICTION 
+		<br> HEART DISEASES PREDICTION 
 	</h5> 
 	<a href="{% url 'heart' %}" class="btn btn-block btn-danger text-uppercase">KNOW HEART HEALTH STATUS</a> <!-- Link to the 'heart' view -->
 	</div> 
