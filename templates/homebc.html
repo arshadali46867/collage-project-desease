@@ -43,12 +43,19 @@
 	.btn:hover { 
 		background-color: #0056b3; 
 	} 
+	#bc{
+		background-repeat: no-repeat;
+		background-position: top;
+		background-size: 1900px 1000px;
+		background-attachment: fixed;
+	  }
 	</style> 
 </head> 
-<body> 
+<body id="bc" style="background-image: url('{% static 'images/bc1.jpg' %}');"> 
+	<br><br> <br><br><br>
 	<section class="pricing py-5"> 
-	<h1 class="card-title">GeeksforGeeks</h1> 
-	<button onclick="window.location.href='breast'" class="btn">KNOW BREAST CANCER STATUS</button> 
+		
+	<button onclick="window.location.href='breast'" class="btn ">KNOW BREAST CANCER STATUS</button> 
 	</section> 
 </body> 
 </html> 

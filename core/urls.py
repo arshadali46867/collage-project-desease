@@ -6,7 +6,7 @@ from appd import views
 
 urlpatterns = [ 
 	path('admin/', admin.site.urls), # URL pattern for the admin interface 
-    path('',views.mainpage),
+    path('main',views.mainpage),
 	path('', include('app.urls')),
 	path('', include('appd.urls')),
 	path('', include('appbc.urls')),

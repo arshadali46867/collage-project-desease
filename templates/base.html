@@ -11,8 +11,26 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" /> 
 <title>{{title}}</title> <!-- Set the page title dynamically using the 'title' variable -->
 </head> 
-<body class="{{background}}"> <!-- Set the body class dynamically using the 'background' variable -->
+<style>
+#back1{
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 1900px 1000px;
+    background-attachment: fixed;
+  }
+</style>
+<body id="back1" style="background-image: url('{% static 'images/heart.jpg' %}');" class="{{background}}"> <!-- Set the body class dynamically using the 'background' variable -->
 {% block content %} {% endblock %} <!-- Define a content block to be overridden in child templates -->
 </body> 
 
 </html> 
+
+
+
+
+
+  
+  
+  
+  
+    <body class="back" style="background-image: url('{% static 'images/medical.jpg' %}');">

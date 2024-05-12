@@ -1,27 +1,27 @@
 from django import forms 
 class BreastCancerForm(forms.Form): 
 	radius = forms.FloatField( 
-		label='Mean Radius', 
+		label='MeanRadius', 
 		min_value=0, 
 		widget=forms.NumberInput(attrs={'class': 'form-control'}), 
 	) 
 	texture = forms.FloatField( 
-		label='Mean Texture', 
+		label='MeanTexture', 
 		min_value=0, 
 		widget=forms.NumberInput(attrs={'class': 'form-control'}), 
 	) 
 	perimeter = forms.FloatField( 
-		label='Mean Perimeter', 
+		label='MeanPerimeter', 
 		min_value=0, 
 		widget=forms.NumberInput(attrs={'class': 'form-control'}), 
 	) 
 	area = forms.FloatField( 
-		label='Mean Area', 
+		label='MeanArea', 
 		min_value=0, 
 		widget=forms.NumberInput(attrs={'class': 'form-control'}), 
 	) 
 	smoothness = forms.FloatField( 
-		label='Mean Smoothness', 
+		label='MeanSmoothness', 
 		min_value=0, 
 		widget=forms.NumberInput(attrs={'class': 'form-control'}), 
 	) 
