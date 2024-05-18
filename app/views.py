@@ -2,8 +2,17 @@ from django.shortcuts import render
 import numpy as np 
 import pandas as pd 
 from sklearn.ensemble import RandomForestClassifier 
+from .models import *
+from django.shortcuts import redirect
+from .forms import HeartDiseaseForm
 
-from app.forms import HeartDiseaseForm 
+# from app.forms import HeartDiseaseForm 
+from .forms import UserRegistrationForm,LoginUserform
+from django.views import View
+from django.contrib import messages
+from django.contrib.auth import authenticate, login as auth_login,logout as auth_logout
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 
 
 def heart(request): 
@@ -78,3 +87,57 @@ def heart(request):
 def home(request): 
 	
 	return render(request, 'home.html') 
+
+
+class CustomerRegistration(View):
+    def get(self,request):
+        form=UserRegistrationForm()
+        return render (request,'userregister.html',{'form':form})
+    def post(self,request):
+        form=UserRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # return render(request,'loginpage.html',{'form':form})
+            return redirect('login')
+        else:
+            messages.warning(request,"Invalid Input Data")
+
+        return render(request,'userregister.html',{'form':form})    
+
+
+
+
+def login(request):
+    
+    if request.method=='POST':
+        form=LoginUserform(request.POST)
+        if form.is_valid():
+            # cd=form.cleaned_data
+            username=form.cleaned_data.get('username')
+            password=form.cleaned_data.get('password')
+            user=authenticate(request,username=username,password=password)
+            if user is not None:
+                if user.is_active:
+                    auth_login(request,user)
+                    return render(request,'mainpage.html')
+                else:
+                    return redirect('userregister')
+            else:
+                return render(request,'loginpage.html',{'form':form}) 
+
+	    
+        return render(request, 'loginpage.html', {'form': form})
+    
+    
+    	 
+
+                
+    else:
+        form=LoginUserform()
+        return render(request,'loginpage.html',{'form':form})
+
+@login_required
+def logout(request):
+     auth_logout(request)
+     return HttpResponse('<h1> Logout Successfully </h1>')
+     

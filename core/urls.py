@@ -4,9 +4,11 @@ from django.conf.urls.static import static
 from django.conf import settings 
 from appd import views
 
+
 urlpatterns = [ 
 	path('admin/', admin.site.urls), # URL pattern for the admin interface 
-    path('',views.mainpage),
+    
+    path('main',views.mainpage,name='main'),
 	path('', include('app.urls')),
 	path('', include('appd.urls')),
 	path('', include('appbc.urls')),

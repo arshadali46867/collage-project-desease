@@ -1,4 +1,5 @@
 from django import forms 
+# from . models import UserRegistration
 
 class HeartDiseaseForm(forms.Form): 
 	# Define form fields for heart disease prediction 
@@ -41,3 +42,50 @@ class HeartDiseaseForm(forms.Form):
 
 	thal = forms.FloatField(label='THAL', widget=forms.NumberInput(attrs={'class': 'form-control'})) 
 	# Field for thalassemia (THAL), represented as a float input widget 
+
+
+
+
+# class UserRegistrationForm(forms.ModelForm):
+# 	password1=forms.CharField(widget=forms.PasswordInput)
+# 	password2=forms.CharField(widget=forms.PasswordInput)
+# 	class Meta:
+# 		model=UserRegistration
+
+# 		fields=('first_name','last_name','username','email','password1','password2')
+
+
+
+# class LoginUserform(forms.ModelForm):
+# 	password1=forms.CharField(widget=forms.PasswordInput())
+# 	class Meta:
+# 		model=UserRegistration
+# 		fields=('username','password1')
+	
+    
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
+
+
+class UserRegistrationForm(UserCreationForm):
+    first_name=forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    last_name=forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    username=forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    email=forms.CharField(widget=forms.EmailInput(attrs={'class':'form-control'}))
+    password1=forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
+    password2=forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
+    class Meta:
+        model=User
+        fields=('first_name','last_name','username','email','password1','password2')
+
+
+
+class LoginUserform(forms.Form):
+    username=forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    password=forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
+    class Meta:
+         model=User
+         fields=('username','password')
+
+		
