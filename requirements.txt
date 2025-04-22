@@ -31,7 +31,7 @@ kiwisolver==1.4.8
 kombu==5.3.7
 MarkupSafe==2.1.5
 matplotlib==3.10.1
-mysqlclient==2.2.7
+pymysql==1.1.0
 numpy==2.2.2
 packaging==24.1
 pandas==2.2.3
