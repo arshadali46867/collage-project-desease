@@ -160,9 +160,6 @@ import pymysql
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-bhot*wa25f-55(8o3^b7xuw_&kl9fs@z--_rx6n-xx^*&-fv7*'
 
@@ -170,7 +167,6 @@ SECRET_KEY = 'django-insecure-bhot*wa25f-55(8o3^b7xuw_&kl9fs@z--_rx6n-xx^*&-fv7*
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 INSTALLED_APPS = [
@@ -215,15 +211,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+# Database settings
+# Use dj_database_url to configure the database from Railway's environment variable
 DATABASES = {
-    'default': dj_database_url.config(default='mysql://username:password@host:port/dbname')  # Update with your Railway database info
+    'default': dj_database_url.config(default='mysql://username:password@host:port/dbname')  # Replace with Railway's database URL
 }
 
 # Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -239,36 +233,27 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/3.2/topics/i18n/
+# Internationalization settings
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
 STATIC_URL = '/static/'
 
-# This will collect static files during the `collectstatic` command
+# For production, collect static files into a single directory
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# If you have additional static directories for development or production, you can add them here
+# You can add extra static directories for development if needed
 # STATICFILES_DIRS = [
 #     BASE_DIR / 'static',
 # ]
 
-# Use MySQL with pymysql (needed for Railway deployment)
+# MySQL support with PyMySQL (needed for Railway deployment)
 pymysql.install_as_MySQLdb()
 
-
 # Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
